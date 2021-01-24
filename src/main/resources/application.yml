@@ -1,0 +1,6 @@
+server:
+  port: ${server_port:8080}
+
+lotus:
+  apiGateway: ${lotus_api_gateway:http://192.168.77.252:1234/rpc/v0}
+  authorization: ${lotus_authorization:}
