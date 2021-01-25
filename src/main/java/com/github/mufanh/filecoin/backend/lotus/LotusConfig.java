@@ -46,4 +46,9 @@ public class LotusConfig {
     public LotusWalletAPI lotusWalletAPI(LotusAPIFactory lotusAPIFactory) {
         return lotusAPIFactory.createLotusWalletAPI();
     }
+
+    @Bean
+    public LotusStateAPI lotusStateAPI(LotusAPIFactory lotusAPIFactory) {
+        return lotusAPIFactory.createLotusStateAPI();
+    }
 }
