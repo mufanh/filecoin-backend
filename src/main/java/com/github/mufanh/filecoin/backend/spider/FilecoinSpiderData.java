@@ -3,12 +3,14 @@ package com.github.mufanh.filecoin.backend.spider;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.Serializable;
+
 /**
  * @author xinquan.huangxq
  */
 @Data
 @Slf4j
-public class FilecoinSpiderData {
+public class FilecoinSpiderData implements Serializable {
     // FIL Price : FIL价格
     // Market Cap : 总市值
     // Market Cap Dominance : 市场优势

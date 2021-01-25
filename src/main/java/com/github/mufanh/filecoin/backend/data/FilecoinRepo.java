@@ -1,5 +1,6 @@
 package com.github.mufanh.filecoin.backend.data;
 
+import com.github.mufanh.filecoin.backend.lotus.FilecoinLotusData;
 import com.github.mufanh.filecoin.backend.spider.FilecoinSpiderData;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -15,6 +16,8 @@ public final class FilecoinRepo {
 
     private FilecoinSpiderData spiderData;
 
+    private FilecoinLotusData lotusData;
+
     public FilecoinSpiderData getSpiderData() {
         rwl.readLock().lock();
         try {
@@ -28,6 +31,25 @@ public final class FilecoinRepo {
         rwl.writeLock().lock();
         try {
             this.spiderData = spiderData;
+        } finally {
+            rwl.writeLock().unlock();
+        }
+    }
+
+
+    public FilecoinLotusData getLotusData() {
+        rwl.readLock().lock();
+        try {
+            return lotusData;
+        } finally {
+            rwl.readLock().unlock();
+        }
+    }
+
+    public void setLotusData(FilecoinLotusData lotusData) {
+        rwl.writeLock().lock();
+        try {
+            this.lotusData = lotusData;
         } finally {
             rwl.writeLock().unlock();
         }
