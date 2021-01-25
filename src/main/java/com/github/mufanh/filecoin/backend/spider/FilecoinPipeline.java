@@ -1,7 +1,6 @@
 package com.github.mufanh.filecoin.backend.spider;
 
 import com.github.mufanh.filecoin.backend.data.FilecoinRepo;
-import com.github.mufanh.filecoin.backend.utils.JSONUtils;
 import lombok.extern.slf4j.Slf4j;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
@@ -25,8 +24,6 @@ public class FilecoinPipeline implements Pipeline {
             }
             spiderData.setByLabel(entry.getKey(), (String) entry.getValue());
         }
-        log.info("爬虫抓取网址：{}，获取到的信息为：{}", SpiderConstants.COINGECKO_4_FILECOIN_URL, JSONUtils.object2json(spiderData));
-
         FilecoinRepo.getInstance().setSpiderData(spiderData);
     }
 }

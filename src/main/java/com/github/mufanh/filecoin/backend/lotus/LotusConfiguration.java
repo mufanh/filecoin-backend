@@ -10,7 +10,7 @@ import org.springframework.context.annotation.DependsOn;
  */
 @Configuration
 @DependsOn("lotusProperties")
-public class LotusConfig {
+public class LotusConfiguration {
 
     @Bean
     public LotusAPIFactory lotusAPIFactory(LotusProperties properties) {

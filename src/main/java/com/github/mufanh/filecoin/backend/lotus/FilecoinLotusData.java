@@ -3,7 +3,6 @@ package com.github.mufanh.filecoin.backend.lotus;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 
 /**
  * @author xinquan.huangxq

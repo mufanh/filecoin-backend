@@ -33,7 +33,7 @@ public class LotusScheduled {
     @Autowired
     private LotusStateAPI lotusStateAPI;
 
-    @Scheduled(cron = "0 0/1 * * * ? ")
+    @Scheduled(cron = "${lotus.cron}")
     public void filecoinLotusScheduled() throws IOException {
         readSyncState();
     }

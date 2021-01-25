@@ -9,22 +9,26 @@ import us.codecraft.webmagic.selector.Selectable;
 
 import java.util.List;
 
+import static com.github.mufanh.filecoin.backend.spider.SpiderProperties.CLIMB_URL;
+import static com.github.mufanh.filecoin.backend.spider.SpiderProperties.USER_AGENT;
+
 /**
  * @author xinquan.huangxq
  */
 @Slf4j
 public class FilecoinPageProcessor implements PageProcessor {
 
-    private final Site coingecko = Site
-            .me()
-            .setDomain("www.coingecko.com")
-            // 10s下载超时时间
-            .setTimeOut(10000)
-            .setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36");
+    private final Site site;
+
+    public FilecoinPageProcessor(SpiderProperties spiderProperties) {
+        this.site = Site.me()
+                .setTimeOut(spiderProperties.getDownloadTimeout())
+                .setUserAgent(USER_AGENT);
+    }
 
     @Override
     public void process(Page page) {
-        if (StringUtils.equals(SpiderConstants.COINGECKO_4_FILECOIN_URL, page.getUrl().get())) {
+        if (StringUtils.equals(CLIMB_URL, page.getUrl().get())) {
             List<Selectable> list = page.getHtml()
                     .xpath("//div[@itemType='https://schema.org/Table']/table/tbody/tr")
                     .nodes();
@@ -41,6 +45,6 @@ public class FilecoinPageProcessor implements PageProcessor {
 
     @Override
     public Site getSite() {
-        return coingecko;
+        return site;
     }
 }

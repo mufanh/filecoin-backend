@@ -36,7 +36,6 @@ public final class FilecoinRepo {
         }
     }
 
-
     public FilecoinLotusData getLotusData() {
         rwl.readLock().lock();
         try {
