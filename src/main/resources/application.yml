@@ -9,4 +9,4 @@ lotus:
 spider:
   threadNum: ${spider_thread_num:5}
   downloadTimeout: ${spider_download_timeout:10000}
-  cron: ${spider_cron:0 0/1 * * * ?}
+  cron: ${spider_cron:0 0/5 * * * ?}

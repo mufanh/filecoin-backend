@@ -13,6 +13,8 @@ import com.github.mufanh.jsonrpc4j.Response;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -25,7 +27,7 @@ import java.io.IOException;
  */
 @Component
 @Slf4j
-public class LotusScheduled {
+public class LotusScheduled implements ApplicationRunner {
 
     @Autowired
     private LotusSyncAPI lotusSyncAPI;
@@ -34,7 +36,12 @@ public class LotusScheduled {
     private LotusStateAPI lotusStateAPI;
 
     @Scheduled(cron = "${lotus.cron}")
-    public void filecoinLotusScheduled() throws IOException {
+    public void filecoinLotusScheduled() {
+        readSyncState();
+    }
+
+    @Override
+    public void run(ApplicationArguments args) {
         readSyncState();
     }
 
