@@ -4,9 +4,15 @@ server:
 lotus:
   apiGateway: ${lotus_api_gateway:http://192.168.77.252:1234/rpc/v0}
   authorization: ${lotus_authorization:}
-  cron: ${spider_cron:0 0/1 * * * ?}
+  connectTimeout: ${lotus_connect_timeout:5}
+  readTimeout: ${lotus_read_timeout:30}
+  writeTimeout: ${lotus_write_timeout:30}
 
 spider:
   threadNum: ${spider_thread_num:5}
   downloadTimeout: ${spider_download_timeout:10000}
   cron: ${spider_cron:0 0/5 * * * ?}
+
+spring:
+  profiles:
+    active: ${env:local}

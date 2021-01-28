@@ -16,11 +16,11 @@ import static com.github.mufanh.filecoin.backend.spider.SpiderProperties.USER_AG
  * @author xinquan.huangxq
  */
 @Slf4j
-public class FilecoinPageProcessor implements PageProcessor {
+public class ExchangeInfoPageProcessor implements PageProcessor {
 
     private final Site site;
 
-    public FilecoinPageProcessor(SpiderProperties spiderProperties) {
+    public ExchangeInfoPageProcessor(SpiderProperties spiderProperties) {
         this.site = Site.me()
                 .setTimeOut(spiderProperties.getDownloadTimeout())
                 .setUserAgent(USER_AGENT);

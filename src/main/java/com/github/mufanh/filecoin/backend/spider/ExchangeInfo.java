@@ -6,11 +6,13 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.Serializable;
 
 /**
+ * filecoin交易所信息
+ *
  * @author xinquan.huangxq
  */
 @Data
 @Slf4j
-public class FilecoinSpiderData implements Serializable {
+public class ExchangeInfo implements Serializable {
     // FIL Price : FIL价格
     // Market Cap : 总市值
     // Market Cap Dominance : 市场优势

@@ -15,4 +15,10 @@ public class LotusProperties {
     private String apiGateway;
 
     private String authorization;
+
+    private int connectTimeout;
+
+    private int readTimeout;
+
+    private int writeTimeout;
 }

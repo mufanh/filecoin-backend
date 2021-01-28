@@ -15,20 +15,20 @@ import static com.github.mufanh.filecoin.backend.spider.SpiderProperties.CLIMB_U
 public class SpiderConfiguration {
 
     @Bean
-    public FilecoinPageProcessor filecoinPageProcessor(SpiderProperties properties) {
-        return new FilecoinPageProcessor(properties);
+    public ExchangeInfoPageProcessor filecoinPageProcessor(SpiderProperties properties) {
+        return new ExchangeInfoPageProcessor(properties);
     }
 
     @Bean
-    public FilecoinPipeline filecoinPipeline() {
-        return new FilecoinPipeline();
+    public ExchangeInfoPipeline filecoinPipeline() {
+        return new ExchangeInfoPipeline();
     }
 
     @Bean
-    public Spider filecoinSpider(SpiderProperties properties, FilecoinPageProcessor filecoinPageProcessor, FilecoinPipeline filecoinPipeline) {
-        return Spider.create(filecoinPageProcessor)
+    public Spider filecoinSpider(SpiderProperties properties, ExchangeInfoPageProcessor exchangeInfoPageProcessor, ExchangeInfoPipeline exchangeInfoPipeline) {
+        return Spider.create(exchangeInfoPageProcessor)
                 .addUrl(CLIMB_URL)
-                .addPipeline(filecoinPipeline)
+                .addPipeline(exchangeInfoPipeline)
                 .thread(properties.getThreadNum())
                 .setExitWhenComplete(true);
     }

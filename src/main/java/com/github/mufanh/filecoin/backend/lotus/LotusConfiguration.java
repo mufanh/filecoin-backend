@@ -14,7 +14,13 @@ public class LotusConfiguration {
 
     @Bean
     public LotusAPIFactory lotusAPIFactory(LotusProperties properties) {
-        return LotusAPIFactory.of(properties.getApiGateway(), properties.getAuthorization());
+        return new LotusAPIFactory.Builder()
+                .apiGateway(properties.getApiGateway())
+                .authorization(properties.getAuthorization())
+                .connectTimeout(5)
+                .readTimeout(30)
+                .writeTimeout(30)
+                .build();
     }
 
     @Bean

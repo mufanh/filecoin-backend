@@ -24,4 +24,9 @@ public final class BusinessException extends RuntimeException {
         super(message);
         this.code = errCode.getCode();
     }
+
+    public BusinessException(ErrCode errCode, Throwable e) {
+        super(errCode.getMessage(), e);
+        this.code = errCode.getCode();
+    }
 }

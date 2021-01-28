@@ -24,6 +24,7 @@
         <webmagic.version>0.7.4</webmagic.version>
         <filecoin4j-rpc.version>1.0.0-SNAPSHOT</filecoin4j-rpc.version>
         <jsonrpc4j.version>1.0.0-SNAPSHOT</jsonrpc4j.version>
+        <jjwt.version>0.9.1</jjwt.version>
     </properties>
 
     <dependencies>
@@ -39,6 +40,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!--  JWT token-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
         </dependency>
 
         <!-- 爬虫框架-->
