@@ -14,7 +14,6 @@ public enum ErrCode {
     // 流程可使用错误码
     BAD_REQUEST("10001", "请求报文格式错误"),
 
-    LOTUS_DATA_UNLOAD("10002", "Lotus数据未加载完成"),
     SPIDER_DATA_UNLOAD("10003", "Spider数据未爬取完成"),
     LOTUS_INVOKE_ERROR("10004", "Lotus API调用出现异常，获取信息失败"),
     LOTUS_DATA_GET_NONE("10005", "Lotus API执行获取信息为空，请检查Lotus同步状态"),
