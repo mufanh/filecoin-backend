@@ -74,6 +74,7 @@ public class FilscountOverview {
     @ApiModelProperty("总账户数")
     private Long totalAccounts;
 
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     @ApiModel("价格")
     @Data
     public static class Price {
@@ -82,6 +83,7 @@ public class FilscountOverview {
         private String alteration;
     }
 
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     @ApiModel("流通市场")
     @Data
     public static class Market {
@@ -89,6 +91,7 @@ public class FilscountOverview {
         private String capitalization;
     }
 
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     @ApiModel("算力")
     @Data
     public static class Power {
