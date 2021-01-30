@@ -18,33 +18,21 @@ import java.io.Serializable;
 @ApiModel("Filecoin交易所信息")
 public class CoingeckoInfo implements Serializable {
 
-    /**
-     * 人名币/FIL
-     */
     @ApiModelProperty("人民币/FIL")
     private Double cny;
 
-    /**
-     * 美元/FIL
-     */
     @ApiModelProperty("美元/FIL")
     private Double usd;
 
-    /**
-     * 排名
-     */
     @ApiModelProperty("排名")
     private Integer rank;
 
-    /**
-     * 市场总价值（人名币）
-     */
     @ApiModelProperty("市场总价值（人民币）")
     private Double marketCapCny;
 
-    /**
-     * 市场总价值（美元）
-     */
     @ApiModelProperty("市场总价值（美元）")
     private Double marketCapUsd;
+
+    @ApiModelProperty("价格变化率（24小时内）")
+    private Double priceChangePercentage24h;
 }
