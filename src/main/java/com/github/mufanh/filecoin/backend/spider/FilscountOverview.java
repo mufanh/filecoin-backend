@@ -74,6 +74,9 @@ public class FilscountOverview {
     @ApiModelProperty("总账户数")
     private Long totalAccounts;
 
+    @ApiModelProperty("交易所信息")
+    private CoingeckoInfo coingeckoInfo;
+
     @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     @ApiModel("价格")
     @Data

@@ -1,6 +1,5 @@
 package com.github.mufanh.filecoin.backend.controller;
 
-import com.github.mufanh.filecoin.backend.filscan.domain.StatChainInfo;
 import com.github.mufanh.filecoin.backend.result.BusinessException;
 import com.github.mufanh.filecoin.backend.result.ErrCode;
 import com.github.mufanh.filecoin.backend.result.Result;
@@ -26,9 +25,11 @@ public class FilscountController {
     @ResponseBody
     @ApiOperation(value = "区块链概要信息", response = Result.class, httpMethod = "GET")
     public Mono<FilscountOverview> overview() {
-        if (SpiderRepo.getRepo().getCoingeckoInfo() == null) {
+        FilscountOverview filscountOverview = SpiderRepo.getRepo().getFilscountOverview();
+        if (filscountOverview == null) {
             throw new BusinessException(ErrCode.SPIDER_DATA_UNLOAD, "Filscount数据未加载完成，请等待几分钟后操作");
         }
-        return Mono.just(SpiderRepo.getRepo().getFilscountOverview());
+        filscountOverview.setCoingeckoInfo(SpiderRepo.getRepo().getCoingeckoInfo());
+        return Mono.just(filscountOverview);
     }
 }
