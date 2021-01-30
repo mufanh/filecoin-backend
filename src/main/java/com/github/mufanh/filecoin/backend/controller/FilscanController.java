@@ -17,7 +17,6 @@ import static com.github.mufanh.filecoin.backend.utils.MonoUtils.convertCall2Mon
 /**
  * @author xinquan.huangxq
  */
-
 @RestController
 @RequestMapping("/filscan")
 @Api("获取Filscan网站抓取的信息")

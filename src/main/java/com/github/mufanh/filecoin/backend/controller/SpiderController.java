@@ -5,6 +5,7 @@ import com.github.mufanh.filecoin.backend.result.ErrCode;
 import com.github.mufanh.filecoin.backend.result.Result;
 import com.github.mufanh.filecoin.backend.spider.CoingeckoInfo;
 import com.github.mufanh.filecoin.backend.spider.SpiderRepo;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
@@ -14,6 +15,7 @@ import reactor.core.publisher.Mono;
  */
 @RestController
 @RequestMapping("/spider")
+@Api("交易所信息")
 public class SpiderController {
 
     @GetMapping(value = "/coingecko/info", produces = "application/json;charset=UTF-8")

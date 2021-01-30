@@ -3,6 +3,7 @@ package com.github.mufanh.filecoin.backend.controller;
 import com.github.mufanh.filecoin.backend.lotus.domain.MyMinerInfo;
 import com.github.mufanh.filecoin.backend.lotus.service.LotusService;
 import com.github.mufanh.filecoin.backend.result.Result;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import reactor.core.publisher.Mono;
  */
 @RestController
 @RequestMapping("/lotus")
+@Api("获取Lotus节点信息")
 public class LotusController {
 
     @Autowired
