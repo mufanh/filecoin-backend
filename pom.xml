@@ -22,8 +22,8 @@
 
         <!-- dependencies -->
         <webmagic.version>0.7.4</webmagic.version>
-        <filecoin4j-rpc.version>1.0.0-SNAPSHOT</filecoin4j-rpc.version>
-        <jsonrpc4j.version>1.0.0-SNAPSHOT</jsonrpc4j.version>
+        <filecoin4j-rpc.version>1.0.1</filecoin4j-rpc.version>
+        <jsonrpc4j.version>1.0.1</jsonrpc4j.version>
         <jjwt.version>0.9.1</jjwt.version>
         <swagger.version>3.0.0</swagger.version>
     </properties>
