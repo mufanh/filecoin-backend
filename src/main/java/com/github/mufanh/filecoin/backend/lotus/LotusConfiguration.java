@@ -17,9 +17,9 @@ public class LotusConfiguration {
         return new LotusAPIFactory.Builder()
                 .apiGateway(properties.getApiGateway())
                 .authorization(properties.getAuthorization())
-                .connectTimeout(5)
-                .readTimeout(30)
-                .writeTimeout(30)
+                .connectTimeout(properties.getConnectTimeout())
+                .readTimeout(properties.getReadTimeout())
+                .writeTimeout(properties.getWriteTimeout())
                 .build();
     }
 
