@@ -6,7 +6,7 @@
                 <pattern>%white(%d{yyyy-MM-dd HH:mm:ss}) %highlight(%lsn) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{10}) - %cyan(%msg%n)</pattern>
             </encoder>
         </appender>
-        <root level="DEBUG">
+        <root level="INFO">
             <appender-ref ref="console"/>
         </root>
     </springProfile>

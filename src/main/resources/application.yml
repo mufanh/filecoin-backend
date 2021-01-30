@@ -8,10 +8,16 @@ lotus:
   readTimeout: ${lotus_read_timeout:30}
   writeTimeout: ${lotus_write_timeout:30}
 
+filscan:
+  apiGateway: https://api.filscan.io:8700/rpc/v1
+  connectTimeout: ${filscan_connect_timeout:5}
+  readTimeout: ${filscan_read_timeout:30}
+  writeTimeout: ${filscan_write_timeout:30}
+
 spider:
   threadNum: ${spider_thread_num:5}
   downloadTimeout: ${spider_download_timeout:10000}
-  cron: ${spider_cron:0 0/5 * * * ?}
+  cron: ${spider_cron:0 0/3 * * * ?}
 
 spring:
   profiles:

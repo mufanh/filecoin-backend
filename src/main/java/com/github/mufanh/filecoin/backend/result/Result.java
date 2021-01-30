@@ -1,6 +1,8 @@
 package com.github.mufanh.filecoin.backend.result;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 import org.assertj.core.util.Preconditions;
@@ -12,6 +14,7 @@ import java.io.Serializable;
  *
  * @author xinquan.huangxq
  */
+@ApiModel("结果状态")
 public class Result<T> implements Serializable {
 
     private static final String SUCCESS_CODE = ErrCode.SUCCESS.getCode();
@@ -27,12 +30,15 @@ public class Result<T> implements Serializable {
 
 
     @Getter
+    @ApiModelProperty("错误码")
     private final String code;
 
     @Getter
+    @ApiModelProperty("错误码描述信息")
     private final String message;
 
     @Getter
+    @ApiModelProperty("结果")
     private final T data;
 
     /**
@@ -40,6 +46,7 @@ public class Result<T> implements Serializable {
      *
      * @return
      */
+    @ApiModelProperty("是否成功")
     public boolean isSuccess() {
         return SUCCESS_CODE.equals(code);
     }

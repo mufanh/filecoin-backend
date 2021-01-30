@@ -12,11 +12,9 @@ import org.springframework.stereotype.Component;
 @Data
 public class SpiderProperties {
 
-    // 爬虫地址
-    public static final String CLIMB_URL = "https://www.coingecko.com/en/coins/filecoin";
-
     // 爬取设置的浏览器Agent
     public static final String USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36";
+
 
     private int threadNum;
 

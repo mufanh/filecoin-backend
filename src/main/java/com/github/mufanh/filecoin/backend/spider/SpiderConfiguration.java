@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import us.codecraft.webmagic.Spider;
 
-import static com.github.mufanh.filecoin.backend.spider.SpiderProperties.CLIMB_URL;
+import java.util.List;
 
 /**
  * @author xinquan.huangxq
@@ -15,20 +15,25 @@ import static com.github.mufanh.filecoin.backend.spider.SpiderProperties.CLIMB_U
 public class SpiderConfiguration {
 
     @Bean
-    public ExchangeInfoPageProcessor filecoinPageProcessor(SpiderProperties properties) {
-        return new ExchangeInfoPageProcessor(properties);
+    public SpiderPageProcessor filecoinPageProcessor(SpiderProperties properties, List<PageHandler> pageHandlers) {
+        return new SpiderPageProcessor(properties, pageHandlers);
     }
 
     @Bean
-    public ExchangeInfoPipeline filecoinPipeline() {
-        return new ExchangeInfoPipeline();
+    public SpiderPipeline filecoinPipeline() {
+        return new SpiderPipeline();
     }
 
     @Bean
-    public Spider filecoinSpider(SpiderProperties properties, ExchangeInfoPageProcessor exchangeInfoPageProcessor, ExchangeInfoPipeline exchangeInfoPipeline) {
-        return Spider.create(exchangeInfoPageProcessor)
-                .addUrl(CLIMB_URL)
-                .addPipeline(exchangeInfoPipeline)
+    public Spider filecoinSpider(SpiderProperties properties,
+                                 SpiderPageProcessor spiderPageProcessor,
+                                 SpiderPipeline spiderPipeline,
+                                 List<PageHandler> pageHandlers) {
+        return Spider.create(spiderPageProcessor)
+                .addPipeline(spiderPipeline)
+                .addUrl(pageHandlers.stream()
+                        .map(PageHandler::url)
+                        .toArray(String[]::new))
                 .thread(properties.getThreadNum())
                 .setExitWhenComplete(true);
     }

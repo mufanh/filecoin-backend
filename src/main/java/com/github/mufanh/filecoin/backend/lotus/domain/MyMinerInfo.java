@@ -1,5 +1,9 @@
 package com.github.mufanh.filecoin.backend.lotus.domain;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.math.BigInteger;
@@ -7,51 +11,35 @@ import java.math.BigInteger;
 /**
  * @author xinquan.huangxq
  */
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Data
+@ApiModel("矿工信息")
 public class MyMinerInfo {
 
-    /**
-     * 矿工地址
-     */
+    @ApiModelProperty("矿工地址")
     private String minerId;
 
-    /**
-     * Owner
-     */
+    @ApiModelProperty("Owner")
     private String owner;
 
-    /**
-     * 节点标识
-     */
+    @ApiModelProperty("节点标识")
     private String peerId;
 
-    /**
-     * 原值算力，单位Byte
-     */
+    @ApiModelProperty("原值算力（单位B）")
     private Long rawBytePower;
 
-    /**
-     * 有效算力，单位Byte
-     */
+    @ApiModelProperty("有效算力（单位B）")
     private Long qualityAdjPower;
 
-    /**
-     * 全网总原值算力
-     */
+    @ApiModelProperty("全网总原值算力（单位B）")
     private Long totalRawBytePower;
 
-    /**
-     * 全网总有效算力
-     */
+    @ApiModelProperty("全网总有效算力（单位B）")
     private Long totalQualityAdjPower;
 
-    /**
-     * 扇区大小，单位Byte
-     */
+    @ApiModelProperty("扇区大小")
     private Long sectorSize;
 
-    /**
-     * 账户余额
-     */
+    @ApiModelProperty("余额")
     private BigInteger balance;
 }

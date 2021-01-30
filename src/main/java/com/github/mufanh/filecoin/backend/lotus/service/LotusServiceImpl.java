@@ -13,7 +13,10 @@ import com.github.mufanh.jsonrpc4j.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
+
 import java.util.concurrent.CompletableFuture;
+
+import static com.github.mufanh.filecoin.backend.utils.MonoUtils.convertCall2Mono;
 
 /**
  * @author xinquan.huangxq
@@ -53,31 +56,5 @@ public class LotusServiceImpl implements LotusService {
 
                     return Mono.just(result);
                 });
-    }
-
-    private <T> Mono<T> convertCall2Mono(Call<T> call) {
-        CompletableFuture<T> future = new CompletableFuture<>();
-
-        call.enqueue(new Callback<T>() {
-            @Override
-            public void onResponse(Call<T> call, Response<T> response) {
-                if (response.getRawResponse() == null || !response.getRawResponse().isSuccessful()) {
-                    future.completeExceptionally(new BusinessException(ErrCode.LOTUS_INVOKE_ERROR));
-                    return;
-                }
-                if (response.getResult() == null) {
-                    future.completeExceptionally(new BusinessException(ErrCode.LOTUS_DATA_GET_NONE));
-                    return;
-                }
-                future.complete(response.getResult());
-            }
-
-            @Override
-            public void onFailure(Call<T> call, Throwable throwable) {
-                future.completeExceptionally(new BusinessException(ErrCode.LOTUS_INVOKE_ERROR, throwable));
-            }
-        });
-
-        return Mono.fromFuture(future);
     }
 }
