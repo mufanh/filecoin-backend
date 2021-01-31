@@ -56,7 +56,9 @@ public class CoingeckoPageHandler implements PageHandler {
         // 24小时变化率
         Selectable priceChangePercentage24h = json.jsonPath("market_data.price_change_percentage_24h");
         if (priceChangePercentage24h != null) {
-            coingeckoInfo.setPriceChangePercentage24h(Double.parseDouble(priceChangePercentage24h.get()));
+            // 4舍5入
+            coingeckoInfo.setPriceChangePercentage24h(
+                    Double.parseDouble(String.format("%.2f", priceChangePercentage24h.get())));
         }
         page.putField(SPIDER_FIELD_COINGECKO_INFO, coingeckoInfo);
     }
