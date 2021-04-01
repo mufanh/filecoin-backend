@@ -27,7 +27,8 @@ public class FilscountController {
     public Mono<FilscountOverview> overview() {
         FilscountOverview filscountOverview = SpiderRepo.getRepo().getFilscountOverview();
         if (filscountOverview == null) {
-            throw new BusinessException(ErrCode.SPIDER_DATA_UNLOAD, "Filscount数据未加载完成，请等待几分钟后操作");
+            //throw new BusinessException(ErrCode.SPIDER_DATA_UNLOAD, "Filscount数据未加载完成，请等待几分钟后操作");
+            filscountOverview = new FilscountOverview();
         }
         filscountOverview.setCoingeckoInfo(SpiderRepo.getRepo().getCoingeckoInfo());
         filscountOverview.setFilfoxOverview(SpiderRepo.getRepo().getFilfoxOverview());
