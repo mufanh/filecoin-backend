@@ -38,7 +38,7 @@ import us.codecraft.webmagic.Page;
  */
 @Component
 public class FilfoxPageHandler implements PageHandler {
-    public static final String CLIMB_URL_4_FILFOX = "https://filscoutv3api.ipfsunion.cn/network/overview";
+    public static final String CLIMB_URL_4_FILFOX = "https://filfox.info/api/v1/overview";
     public static final String SPIDER_FIELD_FILFOX_INFO = "FILSCOUNT_INFO";
 
     @Override
