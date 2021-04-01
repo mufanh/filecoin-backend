@@ -12,9 +12,9 @@ import lombok.Data;
 @ApiModel("Filfox区块链概要信息")
 public class FilfoxOverview {
 
-    private int height;
+    private long height;
 
-    private int timestamp;
+    private long timestamp;
 
     private String totalRawBytePower;
 
@@ -24,9 +24,9 @@ public class FilfoxOverview {
 
     private String totalQualityAdjPowerDelta;
 
-    private int accounts;
+    private long accounts;
 
-    private int activeMiners;
+    private long activeMiners;
 
     private String totalMaxSupply;
 
@@ -44,7 +44,7 @@ public class FilfoxOverview {
 
     private String blockReward;
 
-    private int dailyMessages;
+    private long dailyMessages;
 
     private String dailyCoinsMined;
 
@@ -60,7 +60,7 @@ public class FilfoxOverview {
 
     private double estimatedInitialPledgeCollateral;
 
-    private int sealCost;
+    private long sealCost;
 
     private double price;
 
