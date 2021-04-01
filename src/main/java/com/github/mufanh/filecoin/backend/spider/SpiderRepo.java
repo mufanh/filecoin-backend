@@ -13,6 +13,8 @@ public class SpiderRepo {
 
     private AtomicReference<FilscountOverview> filscountOverview = new AtomicReference<>();
 
+    private AtomicReference<FilfoxOverview> filfoxOverview = new AtomicReference<>();
+
     public CoingeckoInfo getCoingeckoInfo() {
         return coingeckoInfo.get();
     }
@@ -27,6 +29,14 @@ public class SpiderRepo {
 
     public void setFilscountOverview(FilscountOverview info) {
         filscountOverview.set(info);
+    }
+
+    public FilfoxOverview getFilfoxOverview() {
+        return filfoxOverview.get();
+    }
+
+    public void setFilfoxOverview(FilfoxOverview info) {
+        filfoxOverview.set(info);
     }
 
     private SpiderRepo() {

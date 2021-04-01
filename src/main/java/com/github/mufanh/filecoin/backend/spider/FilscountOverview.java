@@ -77,6 +77,9 @@ public class FilscountOverview {
     @ApiModelProperty("交易所信息")
     private CoingeckoInfo coingeckoInfo;
 
+    @ApiModelProperty("filfox区块链概要信息")
+    private FilfoxOverview filfoxOverview;
+
     @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     @ApiModel("价格")
     @Data

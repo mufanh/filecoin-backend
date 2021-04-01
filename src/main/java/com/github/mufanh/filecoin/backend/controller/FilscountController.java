@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono;
  */
 @RestController
 @RequestMapping("/filscount")
-@Api("获取Filscount网站抓取的信息")
+@Api("获取爬虫抓取的信息")
 public class FilscountController {
 
     @GetMapping(value = "/overview", produces = "application/json;charset=UTF-8")
@@ -30,6 +30,7 @@ public class FilscountController {
             throw new BusinessException(ErrCode.SPIDER_DATA_UNLOAD, "Filscount数据未加载完成，请等待几分钟后操作");
         }
         filscountOverview.setCoingeckoInfo(SpiderRepo.getRepo().getCoingeckoInfo());
+        filscountOverview.setFilfoxOverview(SpiderRepo.getRepo().getFilfoxOverview());
         return Mono.just(filscountOverview);
     }
 }
