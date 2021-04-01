@@ -8,6 +8,7 @@ import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;
 
 import static com.github.mufanh.filecoin.backend.spider.CoingeckoPageHandler.SPIDER_FIELD_COINGECKO_INFO;
+import static com.github.mufanh.filecoin.backend.spider.FilfoxPageHandler.SPIDER_FIELD_FILFOX_INFO;
 import static com.github.mufanh.filecoin.backend.spider.FilscountPageHandler.SPIDER_FIELD_FILSCOUNT_INFO;
 
 /**
@@ -34,6 +35,13 @@ public class SpiderPipeline implements Pipeline {
             log.info("爬虫爬取到filscount信息:{}", filscountOverview);
 
             SpiderRepo.getRepo().setFilscountOverview(filscountOverview);
+        }
+
+        FilfoxOverview filfoxOverview = items.get(SPIDER_FIELD_FILFOX_INFO);
+        if (filfoxOverview != null) {
+            log.info("爬虫爬取到filfox信息:{}", filfoxOverview);
+
+            SpiderRepo.getRepo().setFilfoxOverview(filfoxOverview);
         }
     }
 }
