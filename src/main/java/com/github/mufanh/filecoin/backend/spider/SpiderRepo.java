@@ -9,17 +9,17 @@ public class SpiderRepo {
 
     private static final SpiderRepo instance = new SpiderRepo();
 
-    private AtomicReference<CoingeckoInfo> coingeckoInfo = new AtomicReference<>();
+    private AtomicReference<FilecoinPrice> coingeckoInfo = new AtomicReference<>();
 
     private AtomicReference<FilscountOverview> filscountOverview = new AtomicReference<>();
 
     private AtomicReference<FilfoxOverview> filfoxOverview = new AtomicReference<>();
 
-    public CoingeckoInfo getCoingeckoInfo() {
+    public FilecoinPrice getCoingeckoInfo() {
         return coingeckoInfo.get();
     }
 
-    public void setCoingeckoInfo(CoingeckoInfo info) {
+    public void setCoingeckoInfo(FilecoinPrice info) {
         coingeckoInfo.set(info);
     }
 

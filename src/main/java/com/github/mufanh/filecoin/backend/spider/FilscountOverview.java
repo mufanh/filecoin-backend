@@ -75,7 +75,7 @@ public class FilscountOverview {
     private Long totalAccounts;
 
     @ApiModelProperty("交易所信息")
-    private CoingeckoInfo coingeckoInfo;
+    private FilecoinPrice coingeckoInfo;
 
     @ApiModelProperty("filfox区块链概要信息")
     private FilfoxOverview filfoxOverview;
